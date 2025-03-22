@@ -11,6 +11,7 @@ UNicknameComponent::UNicknameComponent()
 	PrimaryComponentTick.bCanEverTick = false;
 
 	// ...
+	Nickname = TEXT("Dev Rookie");
 }
 
 
