@@ -46,6 +46,11 @@ public:
 	{
 		return CurrentHp;
 	}
+	
+	FORCEINLINE float GetHpPercentage() const
+	{
+		return CurrentHp / MaxHp;	
+	}
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
