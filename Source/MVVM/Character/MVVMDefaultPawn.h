@@ -21,31 +21,31 @@ public:
 	AMVVMDefaultPawn();
 	
 	UFUNCTION(BlueprintCallable)
-	FORCEINLINE float GetHp()const
+	float GetHp()const
 	{
 		return HpComponent->GetHp(); 
 	}
 	UFUNCTION(BlueprintCallable)
-	FORCEINLINE float GetMaxHp()const
+	float GetMaxHp()const
 	{
 		return HpComponent->GetMaxHp();
 	}
 	UFUNCTION(BlueprintCallable)
-	FORCEINLINE void SetHp(float InHp)
+	void SetHp(float InHp)
 	{
 		HpComponent->SetHp(InHp);
 	}
 	UFUNCTION(BlueprintCallable)
-	FORCEINLINE void SetMaxHp(float InMaxHp)
+	void SetMaxHp(float InMaxHp)
 	{
 		HpComponent->SetMaxHp(InMaxHp);
 	}
-	FORCEINLINE const FString& GetNickname()
+	const FString& GetNickname()
 	{
 		return NicknameComponent->GetNickname();
 	}
 	UFUNCTION(BlueprintCallable)
-	FORCEINLINE void SetNickName(const FString& InName)
+	void SetNickName(const FString& InName)
 	{
 		NicknameComponent->SetNickname(InName);
 	}
