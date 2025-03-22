@@ -6,8 +6,8 @@
 #include "Components/ActorComponent.h"
 #include "HpComponent.generated.h"
 
-DECLARE_MULTICAST_DELEGATE_OneParam(FOnMaxHpChange, float /*MaxHp*/);
-DECLARE_MULTICAST_DELEGATE_OneParam(FOnHpChange, float /*CurrentHp*/);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnMaxHpChange, float, MaxHp);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnHpChange, float, CurrentHp);
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class MVVM_API UHpComponent : public UActorComponent
@@ -56,7 +56,9 @@ protected:
 	virtual void BeginPlay() override;
 
 public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FOnMaxHpChange OnMaxHpChange;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FOnHpChange OnHpChange;
 	
 protected:

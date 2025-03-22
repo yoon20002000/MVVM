@@ -3,6 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "HpComponent.h"
+#include "NicknameComponent.h"
 #include "GameFramework/Pawn.h"
 #include "MVVMDefaultPawn.generated.h"
 
@@ -17,15 +19,49 @@ class MVVM_API AMVVMDefaultPawn : public APawn
 public:
 	// Sets default values for this pawn's properties
 	AMVVMDefaultPawn();
-
+	
+	UFUNCTION(BlueprintCallable)
+	FORCEINLINE float GetHp()const
+	{
+		return HpComponent->GetHp(); 
+	}
+	UFUNCTION(BlueprintCallable)
+	FORCEINLINE float GetMaxHp()const
+	{
+		return HpComponent->GetMaxHp();
+	}
+	UFUNCTION(BlueprintCallable)
+	FORCEINLINE void SetHp(float InHp)
+	{
+		HpComponent->SetHp(InHp);
+	}
+	UFUNCTION(BlueprintCallable)
+	FORCEINLINE void SetMaxHp(float InMaxHp)
+	{
+		HpComponent->SetMaxHp(InMaxHp);
+	}
+	FORCEINLINE const FString& GetNickname()
+	{
+		return NicknameComponent->GetNickname();
+	}
+	UFUNCTION(BlueprintCallable)
+	FORCEINLINE void SetNickName(const FString& InName)
+	{
+		NicknameComponent->SetNickname(InName);
+	}
+	UFUNCTION(BlueprintCallable)
+	UHpComponent* GetHpComponent()
+	{
+		return HpComponent;
+	}
+	UFUNCTION(BlueprintCallable)
+	UNicknameComponent* GetNicknameComponent()
+	{
+		return NicknameComponent;
+	}
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-
-public:	
-
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 protected:
 	UPROPERTY()
 	TObjectPtr<UHpComponent> HpComponent;

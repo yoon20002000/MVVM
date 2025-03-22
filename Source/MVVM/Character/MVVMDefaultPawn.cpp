@@ -24,11 +24,3 @@ void AMVVMDefaultPawn::BeginPlay()
 	Super::BeginPlay();
 	
 }
-
-// Called to bind functionality to input
-void AMVVMDefaultPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
-{
-	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
-}
-

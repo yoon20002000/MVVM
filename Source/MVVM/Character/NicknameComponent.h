@@ -6,7 +6,7 @@
 #include "Components/ActorComponent.h"
 #include "NicknameComponent.generated.h"
 
-DECLARE_MULTICAST_DELEGATE_OneParam(FOnNicknameChanged, const FString& /*InNickname*/);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnNicknameChanged, const FString&, InNickname);
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class MVVM_API UNicknameComponent : public UActorComponent
