@@ -16,12 +16,14 @@ class MVVM_API UNicknameComponent : public UActorComponent
 public:	
 	// Sets default values for this component's properties
 	UNicknameComponent();
-	FORCEINLINE void SetNickname(const FString& InNickname)
+	UFUNCTION(BlueprintCallable)
+	void SetNickname(const FString& InNickname)
 	{
 		Nickname = InNickname;
 		OnNicknameChanged.Broadcast(Nickname);
 	}
-	FORCEINLINE const FString& GetNickname() const
+	UFUNCTION(BlueprintCallable)
+	const FString& GetNickname() const
 	{
 		return Nickname;
 	}
@@ -29,6 +31,7 @@ protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 public:
+	UPROPERTY(BlueprintAssignable)
 	FOnNicknameChanged OnNicknameChanged;
 protected:
 	UPROPERTY(EditAnywhere)

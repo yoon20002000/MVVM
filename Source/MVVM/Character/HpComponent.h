@@ -18,36 +18,42 @@ public:
 	// Sets default values for this component's properties
 	UHpComponent();
 
-	FORCEINLINE void AddMaxHp(float InAddMaxAmount)
+	UFUNCTION(BlueprintCallable)
+	void AddMaxHp(float InAddMaxAmount)
 	{
 		MaxHp += InAddMaxAmount;
 		OnMaxHpChange.Broadcast(MaxHp);
 	}
-	FORCEINLINE void SetMaxHp(float InMaxHp)
+	UFUNCTION(BlueprintCallable)
+	void SetMaxHp(float InMaxHp)
 	{
 		MaxHp = InMaxHp;
 		OnMaxHpChange.Broadcast(MaxHp);
 	}
-	FORCEINLINE float GetMaxHp() const
+	UFUNCTION(BlueprintCallable)
+	float GetMaxHp() const
 	{
 		return MaxHp;
 	}
-	FORCEINLINE void AddHp(float InAddHpAmount)
+	UFUNCTION(BlueprintCallable)
+	void AddHp(float InAddHpAmount)
 	{
 		CurrentHp += InAddHpAmount;
 		OnHpChange.Broadcast(CurrentHp);
 	}
-	FORCEINLINE void SetHp(float InHp)
+	UFUNCTION(BlueprintCallable)
+	void SetHp(float InHp)
 	{
 		CurrentHp = InHp;
 		OnHpChange.Broadcast(CurrentHp);
 	}
-	FORCEINLINE float GetHp() const
+	UFUNCTION(BlueprintCallable)
+	float GetHp() const
 	{
 		return CurrentHp;
 	}
-	
-	FORCEINLINE float GetHpPercentage() const
+	UFUNCTION(BlueprintCallable)
+	float GetHpPercentage() const
 	{
 		return CurrentHp / MaxHp;	
 	}
@@ -56,9 +62,9 @@ protected:
 	virtual void BeginPlay() override;
 
 public:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintAssignable)
 	FOnMaxHpChange OnMaxHpChange;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintAssignable)
 	FOnHpChange OnHpChange;
 	
 protected:
