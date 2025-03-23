@@ -59,6 +59,33 @@ public:
 	{
 		return NicknameComponent;
 	}
+	UFUNCTION(BlueprintCallable)
+	void AddMaxHp(float InMaxHpAmount)
+	{
+		HpComponent->AddMaxHp(InMaxHpAmount);
+	}
+	UFUNCTION(BlueprintCallable)
+	void SubMaxHp(float InMaxHpAmount)
+	{
+		HpComponent->AddMaxHp(-InMaxHpAmount);
+	}
+	UFUNCTION(BlueprintCallable)
+	void AddHp(float InHpAmount)
+	{
+		HpComponent->AddHp(InHpAmount);
+	}
+	UFUNCTION(BlueprintCallable)
+	void SubHp(float InHpAmount)
+	{
+		HpComponent->AddHp(-InHpAmount);
+	}
+	UFUNCTION(BlueprintCallable)
+	void ResetStat()
+	{
+		SetMaxHp(100);
+		SetHp(100);
+		SetNickName(TEXT("Dev Rookie"));
+	}
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
